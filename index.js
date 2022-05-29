@@ -16,26 +16,36 @@ const arrayObjectPegawai = require("./data-customer.json");
 function lakukanLooping(arrPegawai) {
   // ! JANGAN DIMODIFIKASI
   let dataYangAkanDilooping = arrPegawai;
-
-  /*
+  
+  /* 
     TODO 1: Buatlah sebuah variabel bernama "hasilLooping" 
       yang berisi gabungan nama depan dan belakang dari masing masing pegawai
 
       Contoh: ["Aisyah Nirmala", "Mansur Faisal", ...]
   */
-  let hasilLooping = null;
-
+  let hasilLooping = [];
+  for(let i =0; i < dataYangAkanDilooping.length; i++){
+    hasilLooping[i] = dataYangAkanDilooping[i].namaDepan + " " + dataYangAkanDilooping[i].namaBelakang;
+    
+  }
+  //console.log(hasilLooping);
   /*
     TODO 2: Buatlah sebuah variabel bernama "jumlahPria"
       yang berisi jumlah pria dari masing masing pegawai
   */
   let jumlahPria = null;
-
+  
+  //console.log(jumlahPria);
   /*
     TODO 3: Buatlah sebuah variabel bernama "jumlahWanita"
       yang berisi jumlah wanita dari masing masing pegawai
   */
   let jumlahWanita = null;
+  
+  // hasil 2 dan 3
+  for(let j =0; j < dataYangAkanDilooping.length; j++){
+    (dataYangAkanDilooping[j].jenisKelamin == "M") ? jumlahPria ++ : jumlahWanita ++;
+  }
 
   /*
     TODO 4: Buatlah sebuah variabel bernama "komentar"
@@ -49,7 +59,8 @@ function lakukanLooping(arrPegawai) {
         "Jumlah Pria dan Wanita berimbang"
   */
   let komentar = null;
-
+   komentar = (jumlahPria > jumlahWanita) ? 'Jumlah Pria lebih banyak dari Wanita' : (jumlahPria < jumlahWanita) ? 'Jumlah Wanita lebih banyak dari Pria' : 'Jumlah Pria dan Wanita berimbang';
+  
   // ! JANGAN DIMODIFIKASI
   return {
     hasilLooping,
@@ -65,6 +76,7 @@ function main(data) {
   console.log(hasil.hasilLooping);
   console.log(hasil.jumlahPria);
   console.log(hasil.jumlahWanita);
+  //console.log(hasil.komentar);
 
   return hasil;
 }
